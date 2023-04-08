@@ -1,0 +1,28 @@
+<main>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-8 col-md-8 mx-auto mb-3">
+        <div id="process-summary" class="container-fluid">
+          <div [hidden]="submitted">
+            <h1 class="fw-light mb-5">Estimated Airbnb Earnings</h1>
+
+            <form (ngSubmit)="onSubmit()" #summaryForm="ngForm">
+
+              <!-- * NOTE: autocomplete -->
+              <div class="form-group">
+                <div class="form-group autocomplete-panel">
+                  <div id="autocomplete" class="autocomplete-container" name="q"></div>
+                </div>
+              </div>
+
+              <div class="container" id="br-ba-guests" *ngIf="!autocomplete.currentItems"> </div>
+              <button type="submit" class="btn btn-success mt-3" [disabled]="!summaryForm.form.valid"> Submit </button>
+              <div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

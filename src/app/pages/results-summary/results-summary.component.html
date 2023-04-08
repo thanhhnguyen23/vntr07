@@ -1,0 +1,88 @@
+<main>
+
+  <div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
+    <div class="grid">
+      <div class="col-12 md:col-6 lg:col-4">
+
+        <div class="surface-card shadow-2 p-3 border-round">
+          <div class="flex justify-content-between mb-3">
+            <div>
+              <span class="block text-500 font-medium mb-3">Avg. ADR</span>
+              <div class="text-900 font-medium text-xl" style="color: rgb(63, 81, 181);">
+                {{displayResults['adr']['ltm'] | currency }}</div>
+            </div>
+            <div class="flex align-items-center justify-content-center bg-orange-100 border-round"
+              style="width:2.5rem;height:2.5rem">
+              <i class="pi pi-dollar text-orange-500 text-xl"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-12 md:col-6 lg:col-4">
+        <div class="surface-card shadow-2 p-3 border-round">
+          <div class="flex justify-content-between mb-3">
+            <div> <span class="block text-500 font-medium mb-3">Est. Revenue</span>
+              <div class="text-900 font-medium text-xl" style="color: rgb(63, 81, 181)">
+                {{displayResults['revenue']['ltm'] |
+                currency }}</div>
+            </div>
+            <div class="flex align-items-center justify-content-center bg-orange-100 border-round"
+              style="width:2.5rem;height:2.5rem">
+              <i class="pi pi-dollar text-orange-500 text-xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 md:col-6 lg:col-4">
+        <div class="surface-card shadow-2 p-3 border-round">
+          <div class="flex justify-content-between mb-3">
+            <div>
+              <span class="block text-500 font-medium mb-3">Occupancy</span>
+              <div class="text-900 font-medium text-xl" style="color: rgb(63, 81, 181);">
+                {{displayResults['occupancy']['ltm'] | percent }}</div>
+            </div>
+            <div class="flex align-items-center justify-content-center bg-orange-100 border-round"
+              style="width:2.5rem;height:2.5rem">
+              <i class="pi pi-percentage text-orange-500 text-xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+</main>
+
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-8 col-md-8 mx-auto mb-3">
+      <div id="process-summary" class="container-fluid">
+        <div [hidden]="submitted"> <br>
+          <p-card header="{{ currentAddress }}">
+            <ng-template pTemplate="header">
+              <img src="{{ targetPropertyUrl }}" alt="target-property-card">
+            </ng-template>
+            <ul>
+              <h4>
+                <li style="list-style: none;">Bedrooms: {{ currentBedrooms }}</li>
+              </h4>
+              <h4>
+                <li style="list-style: none;">Bathrooms {{ currentBathrooms }}</li>
+              </h4>
+              <h4>
+                <li style="list-style: none;">Guests: {{ currentGuests }}</li>
+              </h4>
+            </ul>
+          </p-card>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

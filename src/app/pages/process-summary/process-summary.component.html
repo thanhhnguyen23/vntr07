@@ -1,0 +1,60 @@
+<main>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <h1 class="fw-light"> {{ addressDisplay }}</h1>
+      <div class="col-lg-8 col-md-8 mx-auto mb-3 mt-3">
+
+        <div id="results-summary" class="container-fluid" id="br-ba-guests" *ngIf="toggleDisplay">
+          <form (ngSubmit)="onSubmit()" #summaryForm="ngForm">
+            <div class=" row">
+
+              <div class="col-md">
+                <!-- * NOTE: bedrooms -->
+                <div class="form-group">
+                  <label for="br">Bedrooms</label>
+                  <select class="form-control" id="br" required [(ngModel)]="model.bedrooms" name="br" #br="ngModel">
+                    <option *ngFor="let b of bedrooms" [value]="b">{{ b }}</option>
+                  </select>
+                  <div [hidden]="br.valid || br.pristine" class="alert alert-danger"> # of Bedrooms is required
+                  </div>
+                </div>
+
+                <div class="col-md">
+                  <!-- * NOTE: bathrooms -->
+                  <div class="form-group">
+                    <label for="ba">Bathrooms</label>
+                    <select class="form-control" id="ba" required [(ngModel)]="model.bathrooms" name="ba" #ba="ngModel">
+                      <option *ngFor="let ba of bathrooms" [value]="ba">{{ ba }}</option>
+                    </select>
+                    <div [hidden]="ba.valid || ba.pristine" class="alert alert-danger">
+                      # of Bathrooms is required
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md">
+
+                  <!-- * NOTE: guests -->
+                  <div class="form-group">
+                    <label for="guests">Guests</label>
+                    <select class="form-control" id="guests" required [(ngModel)]="model.guests" name="guest"
+                      #guest="ngModel">
+                      <option *ngFor="let g of guests" [value]="g">{{ g }}</option>
+                    </select>
+                    <div [hidden]="guest.valid || guest.pristine" class="alert alert-danger"> # of Guests is
+                      required
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success mt-3" [disabled]="!summaryForm.form.valid">Submit</button>
+          </form>
+
+          <div [hidden]="submitted"> </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
