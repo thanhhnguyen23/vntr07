@@ -34,6 +34,6 @@ export class ResultsSummaryComponent {
     this.currentGuests = this.rService.currentGuests;
     this.displayResults = this.rService.getResults();
 
-    this.targetPropertyUrl = `https://maps.googleapis.com/maps/api/streetview?size=300x290&location=${this.currentAddress}&fov=80&pitch=0&key=AIzaSyDndbbXM_cRo3rFfBFB0tAtcoYrVSpj9ok`;
+    this.targetPropertyUrl = `http://maps.googleapis.com/maps/api/streetview?size=300x290&location=${this.currentAddress}&fov=80&pitch=0&key=AIzaSyDndbbXM_cRo3rFfBFB0tAtcoYrVSpj9ok`;
   }
 }

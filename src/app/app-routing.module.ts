@@ -7,10 +7,11 @@ import { ResultsSummaryComponent } from './pages/results-summary/results-summary
 
 const routes: Routes = [
   { path: '', redirectTo: '/summary', pathMatch: 'full' },
-  // { path: 'rentalyzer', component: RentalyzerComponent },
   { path: 'process-summary', component: ProcessSummaryComponent },
   { path: 'results-summary', component: ResultsSummaryComponent },
   { path: 'summary', component: RentalyzerSummaryComponent },
+
+  // { path: 'rentalyzer', component: RentalyzerComponent },
 ];
 
 @NgModule({
