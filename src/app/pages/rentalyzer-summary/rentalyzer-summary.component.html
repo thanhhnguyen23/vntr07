@@ -4,19 +4,24 @@
       <div class="col-lg-8 col-md-8 mx-auto mb-3">
         <div id="process-summary" class="container-fluid">
           <div [hidden]="submitted">
-            <h1 class="fw-light mb-5">Estimated Airbnb Earnings</h1>
+            <h1 class="mb-5" style="color: rgb(63, 81, 181);">Estimated
+              Airbnb Earnings</h1>
 
             <form (ngSubmit)="onSubmit()" #summaryForm="ngForm">
+              <div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
 
-              <!-- * NOTE: autocomplete -->
-              <div class="form-group">
-                <div class="form-group autocomplete-panel">
-                  <div id="autocomplete" class="autocomplete-container" name="q"></div>
+                <!-- * NOTE: autocomplete -->
+                <div class="form-group">
+                  <div class="form-group autocomplete-panel">
+                    <div id="autocomplete" class="autocomplete-container" name="q"></div>
+                  </div>
                 </div>
+
+                <div class="container" id="br-ba-guests" *ngIf="!autocomplete.currentItems"> </div>
+
               </div>
 
-              <div class="container" id="br-ba-guests" *ngIf="!autocomplete.currentItems"> </div>
-              <button type="submit" class="btn btn-success mt-3" [disabled]="!summaryForm.form.valid"> Submit </button>
+              <p-button type="submit" class="mt-3" [disabled]="!summaryForm.form.valid"> Submit </p-button>
               <div>
               </div>
             </form>
@@ -26,3 +31,28 @@
     </div>
   </section>
 </main>
+
+<p-toast></p-toast>
+
+<section>
+  <div class="card flex justify-content-center">
+
+    <p-dialog header="Header" [(visible)]="disclaimerDialogToggle" [style]="{ width: '50vw' }">
+      <ng-template pTemplate="header">
+        <span class="text-xl font-bold">VNTR Disclaimer</span>
+      </ng-template>
+      <p>{{ DISCLAIMER_MSG }}</p>
+      <ng-template pTemplate="footer">
+        <p-button icon="pi" (click)="disclaimerDialogToggle = false" label="Ok" styleClass="p-button-text"></p-button>
+      </ng-template>
+    </p-dialog>
+
+    <p-dialog header="Invalid Address" [(visible)]="inValidAddressToggle" [style]="{ width: '50vw' }">
+      <p> Please verify address and try again. </p>
+      <ng-template pTemplate="footer">
+        <p-button icon="pi" (click)="inValidAddressToggle = false" label="Ok" styleClass="p-button-text"></p-button>
+      </ng-template>
+    </p-dialog>
+
+  </div>
+</section>
